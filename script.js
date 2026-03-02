@@ -14,7 +14,7 @@ function carregarProdutos() {
     listaProdutos.forEach(produto => {
         // Cria a mensagem do WhatsApp
         const mensagemWhats = encodeURIComponent(`Olá! Tenho interesse no produto: ${produto.nome} (R$ ${produto.preco})`);
-        const linkWhats = `https://wa.me/${CONFIG.whatsapp}?text=${mensagemWhats}`;
+        const linkWhats = `https://wa.me/message/5RSOWGKUXEYGF1${CONFIG.whatsapp}?text=${mensagemWhats}`;
 
         // Cria o HTML do card
         const card = `
