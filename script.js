@@ -1,39 +1,32 @@
-// Configurações Gerais
-const CONFIG = {
-    whatsapp: "554999476742", // Seu número com DDD
-    nomeLoja: "GPA FITNESS"
-};
+// Altere o número abaixo para o seu número real
+const TELEFONE_LOJA = "554999476742"; 
 
-// Função para carregar produtos na tela
 function carregarProdutos() {
     const grid = document.getElementById('grid-produtos');
-    
-    // Limpa o grid antes de carregar (bom para atualizações futuras)
-    grid.innerHTML = "";
+    if (!grid) return;
 
-    listaProdutos.forEach(produto => {
-        // Cria a mensagem do WhatsApp
-        const mensagemWhats = encodeURIComponent(`Olá! Tenho interesse no produto: ${produto.nome} (R$ ${produto.preco})`);
-        const linkWhats = `https://wa.me/message/5RSOWGKUXEYGF1${CONFIG.whatsapp}?text=${mensagemWhats}`;
+    grid.innerHTML = ""; // Limpa o grid antes de carregar
 
-        // Cria o HTML do card
-        const card = `
+    listaProdutos.forEach(prod => {
+        // A MÁGICA ESTÁ AQUI: O encodeURIComponent prepara o texto para o link
+        const mensagem = encodeURIComponent(`Olá! Vi no site e tenho interesse no produto: ${prod.nome}`);
+        
+        // O link DEVE ser wa.me/NUMERO?text=MENSAGEM
+        const linkWhats = `https://wa.me/${TELEFONE_LOJA}?text=${mensagem}`;
+
+        grid.innerHTML += `
             <div class="product-card" data-aos="zoom-in">
-                <div class="product-img">
-                    <img src="${produto.imagem}" alt="${produto.nome}">
-                </div>
+                <div class="product-img"><img src="${prod.imagem}" alt="${prod.nome}"></div>
                 <div class="product-info">
-                    <h3>${produto.nome}</h3>
-                    <p>${produto.descricao}</p>
-                    <span class="price">R$ ${produto.preco}</span>
+                    <h3>${prod.nome}</h3>
+                    <p>${prod.descricao}</p>
+                    <span class="price">R$ ${prod.preco}</span>
                     <a href="${linkWhats}" target="_blank" class="btn-buy">
-                        Comprar pelo WhatsApp <i class="fab fa-whatsapp"></i>
+                        Comprar via WhatsApp <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
         `;
-        
-        grid.innerHTML += card;
     });
 }
 
