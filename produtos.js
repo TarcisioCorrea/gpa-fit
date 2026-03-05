@@ -40,6 +40,13 @@ const listaProdutos = [
         descricao: "Equipamento multi-função para treinos completos em casa ou condomínio.",
         preco: "20.000,00",
         imagem: "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?q=80&w=500"
+    },
+    {
+        id: 7,
+        nome: "Extensora",
+        descricao: "Equipamento multi-função para treinos completos em casa ou condomínio.",
+        preco: "50.000,00",
+        imagem: "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?q=80&w=500"
     }
     // PARA ADICIONAR MAIS, COPIE DA CHAVE { ATÉ A CHAVE } E COLE AQUI EMBAIXO
 ];
