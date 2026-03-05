@@ -38,15 +38,16 @@ h1, h2, h3, .btn {
 
 /* Header */
 header {
-    height: 80px;
-    background: rgba(0, 0, 0, 0.9);
+    background: #050000;
+    min-height: 100px; /* Aumentamos a altura mínima do topo */
+    display: flex;
+    align-items: center;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 2px solid var(--primary);
+    transition: all 0.3s ease;
 }
 
 header .container {
@@ -56,14 +57,38 @@ header .container {
     width: 100%;
 }
 
-.logo h1 {
-    font-size: 1.8rem;
-    color: #fff;
-    letter-spacing: 1px;
+.logo{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
 }
 
-.logo span {
-    color: var(--primary);
+#main-logo {
+    height: 130px; 
+    width: auto;
+    display: block;
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.5)); /* Sombra para destacar */
+    transition: transform 0.3s ease;
+}
+
+#main-logo:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+    header {
+        min-height: 80px;
+    }
+    
+    #main-logo {
+        height: 90px; /* Tamanho da logo no celular */
+    }
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-menu ul {
@@ -105,7 +130,7 @@ header .container {
 }
 
 .hero-content h2 {
-    font-size: 3.5rem;
+    font-size: 2.5em;
     margin-bottom: 20px;
     letter-spacing: 2px;
 }
